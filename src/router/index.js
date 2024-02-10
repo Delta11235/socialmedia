@@ -19,10 +19,6 @@ const routes = [
     name: "login",
     component: LoginView,
   },
-  {
-    path: "/src/php/getUsers.php",
-    name: "getUsers.php",
-  },
 ];
 
 const router = createRouter({

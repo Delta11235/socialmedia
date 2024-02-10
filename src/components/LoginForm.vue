@@ -14,8 +14,7 @@
       v-model="haslo"
       placeholder="haslo"
     /><br />
-    <button type="submit" v-on:click="getUsers()">Zaloguj</button><br />
-    <span v-if="data">{{ data }}</span>
+    <button type="submit" v-on:click="loginUser()">Zaloguj</button><br />
   </div>
 </template>
 <script>
@@ -29,18 +28,22 @@ export default {
     };
   },
   methods: {
-    async getUsers() {
+    //
+    async loginUser() {
       let formData = new FormData();
       formData.append("login", this.login);
       formData.append("haslo", this.haslo);
 
-      fetch("http://localhost/vue+php/socialmedia/src/php/getUsers.php", {
+      fetch("http://localhost/vue+php/socialmedia/src/php/login.php", {
         method: "POST",
         body: formData,
       })
         .then((response) => response.text())
         .then((data) => {
           this.data = data;
+          if (this.data == 1) {
+            this.$router.push("/about");
+          }
         })
         .catch((error) => console.error(error));
     },
