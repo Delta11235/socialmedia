@@ -42,7 +42,7 @@ export default {
         .then((data) => {
           this.data = data;
           if (this.data == 1) {
-            this.$router.push("/about");
+            this.$router.push("/main");
           }
         })
         .catch((error) => console.error(error));
