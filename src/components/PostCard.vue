@@ -2,7 +2,29 @@
   <div id="container">
     <div id="user">{{ imie + " " + nazwisko }}</div>
     <div id="tresc">{{ tresc }}</div>
+    <div id="data">
+      <div id="likes" v-if="!liked">
+        <button v-on:click="liked = !liked">
+          <span class="material-symbols-outlined"> favorite </span>
+        </button>
+      </div>
+      <div id="likes" v-else-if="liked">
+        <button v-on:click="liked = !liked">
+          <span class="material-symbols-outlined"> heart_broken </span>
+        </button>
+      </div>
+      <div id="coms">
+        <button>
+          <span class="material-symbols-outlined"> chat </span>
+        </button>
+      </div>
+    </div>
   </div>
+  <!-- googlefonts -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+  />
 </template>
 <script>
 export default {
@@ -12,6 +34,11 @@ export default {
     imie: String,
     nazwisko: String,
     tresc: String,
+  },
+  data() {
+    return {
+      liked: false,
+    };
   },
 };
 </script>
@@ -25,6 +52,7 @@ export default {
   text-align: left;
   background-color: #4d5556;
   color: #eef0f2;
+  position: relative;
 }
 #user {
   float: left;
@@ -39,5 +67,34 @@ export default {
   overflow: hidden;
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
+}
+#data {
+  margin: 20px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+}
+#likes {
+  color: black;
+  width: 40px;
+  height: 40px;
+  background-color: inherit;
+}
+#coms {
+  width: 40px;
+  height: 40px;
+  background-color: inherit;
+}
+button {
+  background-color: inherit;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+/* googlefonts */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 36px;
+  color: #eef0f2;
 }
 </style>
