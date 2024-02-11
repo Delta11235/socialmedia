@@ -1,12 +1,26 @@
 <template lang="">
   <div id="main">
-    MainSection
-    <div>{{ posts }}</div>
+    <div v-if="posts"></div>
+    <div v-else>loading data...</div>
+    <div id="posts">
+      <PostCard
+        v-for="post in posts"
+        :key="post.id"
+        :id="post.id"
+        :imie="post.imie"
+        :nazwisko="post.nazwisko"
+        :tresc="post.tresc"
+      />
+    </div>
   </div>
 </template>
 <script>
+import PostCard from "./PostCard.vue";
 export default {
   name: "MainSection",
+  components: {
+    PostCard,
+  },
   data() {
     return {
       posts: null,
@@ -20,7 +34,7 @@ export default {
       .then((data) => {
         this.posts = data;
         // console.log(data);
-        // console.log(this.posts[0]);
+        console.log(this.posts[0]);
         // console.log(this.posts[1]);
       })
       .catch((error) => console.error(error));
@@ -29,11 +43,14 @@ export default {
 </script>
 <style lang="css" scoped>
 #main {
+  padding: 10px;
   height: 100vh;
-  width: 80%;
-  background-color: #eee7e7;
+  width: 114vh;
+  background-color: #353b3c;
 }
-div {
-  min-height: 30px;
+#posts {
+  flex-direction: column-reverse;
+  display: flex;
+  align-items: center;
 }
 </style>

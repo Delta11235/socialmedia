@@ -1,5 +1,5 @@
 <template lang="">
-  <div>Sidebar</div>
+  <div id="main"></div>
 </template>
 <script>
 export default {
@@ -13,9 +13,10 @@ export default {
 </script>
 <style lang="css" scoped>
 div {
+  padding: 10px;
   height: 100vh;
   width: 20%;
-  background-color: #f3f0f0;
-  border-right: solid rgb(230, 227, 227);
+  background-color: #4d5556;
+  border-right: solid #7d8a8c;
 }
 </style>
