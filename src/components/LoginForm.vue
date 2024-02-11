@@ -18,6 +18,7 @@
   </div>
 </template>
 <script>
+import { store } from "@/store";
 export default {
   name: "LoginForm",
   data() {
@@ -25,6 +26,7 @@ export default {
       data: null,
       login: null,
       haslo: null,
+      store,
     };
   },
   methods: {
@@ -41,7 +43,12 @@ export default {
         .then((response) => response.text())
         .then((data) => {
           this.data = data;
-          if (this.data == 1) {
+          this.data = JSON.parse(this.data);
+          console.log(this.data.imie);
+          if (this.data) {
+            store.id = this.data.id;
+            store.imie = this.data.imie;
+            store.nazwisko = this.data.nazwisko;
             this.$router.push("/main");
           }
         })

@@ -1,8 +1,6 @@
 <template lang="">
   <div id="main">
-    <div v-if="posts"></div>
-    <div v-else>loading data...</div>
-    <div id="posts">
+    <div id="posts" v-if="this.posts">
       <PostCard
         v-for="post in posts"
         :key="post.id"
@@ -12,6 +10,7 @@
         :tresc="post.tresc"
       />
     </div>
+    <div v-else>loading posts...</div>
   </div>
 </template>
 <script>
@@ -34,7 +33,7 @@ export default {
       .then((data) => {
         this.posts = data;
         // console.log(data);
-        console.log(this.posts[0]);
+        // console.log(this.posts[0]);
         // console.log(this.posts[1]);
       })
       .catch((error) => console.error(error));
@@ -45,8 +44,9 @@ export default {
 #main {
   padding: 10px;
   height: 100vh;
-  width: 114vh;
+  width: 60%;
   background-color: #353b3c;
+  color: #eef0f2;
 }
 #posts {
   flex-direction: column-reverse;
