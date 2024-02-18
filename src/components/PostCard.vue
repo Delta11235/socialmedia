@@ -10,7 +10,7 @@
       </div>
       <div id="likes" v-else-if="liked">
         <button v-on:click="liked = !liked">
-          <span class="material-symbols-outlined"> heart_broken </span>
+          <span class="material-symbols-outlined" id="liked"> favorite </span>
         </button>
       </div>
       <div id="coms">
@@ -23,7 +23,7 @@
   <!-- googlefonts -->
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
   />
 </template>
 <script>
@@ -96,5 +96,9 @@ button {
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: 36px;
   color: #eef0f2;
+  cursor: pointer;
+}
+#liked {
+  color: red;
 }
 </style>

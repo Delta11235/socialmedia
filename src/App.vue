@@ -10,6 +10,9 @@
   text-align: center;
   color: #2c3e50;
 }
+h1 {
+  color: #eef0f2;
+}
 
 nav {
   padding: 30px;
@@ -17,7 +20,7 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #eef0f2;
 }
 
 nav a.router-link-exact-active {

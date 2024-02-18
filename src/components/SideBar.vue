@@ -1,6 +1,7 @@
 <template lang="">
   <div id="main">
     <div v-if="store">
+      Zalogowano jako:
       <FriendCard
         :id="store.id"
         :imie="store.imie"
